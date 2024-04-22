@@ -1,6 +1,6 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
-import { StepOne, StepThree, StepTwo, StepperComponent } from '../../components'
+import { StepFour, StepOne, StepThree, StepTwo, StepperComponent } from '../../components'
 import { StepContext } from '../../context/StepContext'
 
 const Form = () => {
@@ -10,13 +10,16 @@ const Form = () => {
             <Flex>
                 <StepperComponent />
                 {
-                    step == 0 ?
+                    step === 0 ?
                         <StepOne />
                         :
-                        step == 1 ?
+                        step === 1 ?
                             <StepTwo />
                             :
-                            <StepThree />
+                            step === 2 ?
+                                <StepThree />
+                                :
+                                <StepFour />
                 }
             </Flex>
         </Box>

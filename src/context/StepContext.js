@@ -4,9 +4,9 @@ export const StepContext = createContext()
 
 const StepProvider = ({ children }) => {
     const [step, setStep] = useState(0)
-
+    console.log('stepContext', step)
     const goToNextStep = () => {
-        setStep((prev) => prev + 1)
+        setStep(step + 1)
     }
 
     const goToPreviousStep = () => {

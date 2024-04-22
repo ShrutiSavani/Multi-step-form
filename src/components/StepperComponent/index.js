@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Box, Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle, Stepper, useSteps } from '@chakra-ui/react'
 import { StepContext } from '../../context/StepContext'
 
@@ -8,9 +8,14 @@ const StepperComponent = () => {
         { title: 'First', description: 'Contact Info' },
         { title: 'Second', description: 'Date & Time' },
         { title: 'Third', description: 'Select Rooms' },
+        { title: 'Four', description: 'Select Rooms' },
     ]
-    console.log(step)
-    const { activeStep } = useSteps({
+
+    useEffect(() => {
+        setActiveStep(step)
+    }, [step])
+
+    const { activeStep, setActiveStep } = useSteps({
         index: step,
         count: steps.length,
     })
