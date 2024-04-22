@@ -1,9 +1,15 @@
+import { Box } from '@chakra-ui/react';
 import './App.css';
-import MyComponent from './components/MyComponent';
+import { Form } from './pages';
+import StepProvider from './context/StepContext';
 
 function App() {
   return (
-    <MyComponent/>
+    <Box>
+      <StepProvider>
+        <Form />
+      </StepProvider>
+    </Box>
   );
 }
 
