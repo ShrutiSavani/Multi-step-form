@@ -8,7 +8,7 @@ const StepThree = () => {
     <Box>
       <Text>StepThree</Text>
       <Button onClick={goToPreviousStep}>go back</Button>
-      <Button colorScheme='teal' onClick={goToNextStep}>next</Button>
+      <Button onClick={goToNextStep}>next</Button>
     </Box>
   )
 }

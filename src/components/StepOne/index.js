@@ -7,7 +7,7 @@ function StepOne() {
   return (
     <Box>
       <Text>StepOne</Text>
-      <Button colorScheme='teal' onClick={goToNextStep}>next</Button>
+      <Button onClick={goToNextStep} variant='solid'>next</Button>
     </Box>
   )
 }

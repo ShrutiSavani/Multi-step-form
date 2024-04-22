@@ -7,8 +7,8 @@ const StepTwo = () => {
   return (
     <Box>
       <Text>StepTwo</Text>
-      <Button onClick={goToPreviousStep}>go back</Button>
-      <Button colorScheme='teal' onClick={goToNextStep}>next</Button>
+      <Button onClick={goToPreviousStep} variant='prev'>go back</Button>
+      <Button onClick={goToNextStep} variant='solid'>next</Button>
     </Box>
   )
 }

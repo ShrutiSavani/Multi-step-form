@@ -5,10 +5,10 @@ import { StepContext } from '../../context/StepContext'
 const StepperComponent = () => {
     const { step } = useContext(StepContext)
     const steps = [
-        { title: 'First', description: 'Contact Info' },
-        { title: 'Second', description: 'Date & Time' },
-        { title: 'Third', description: 'Select Rooms' },
-        { title: 'Four', description: 'Select Rooms' },
+        { title: 'STEP 1', description: 'YOUR INFO' },
+        { title: 'STEP 2', description: 'SELECT PLAN' },
+        { title: 'STEP 3', description: 'ADD ONS' },
+        { title: 'STEP 4', description: 'SUMMARY' },
     ]
 
     useEffect(() => {
@@ -33,8 +33,8 @@ const StepperComponent = () => {
                     </StepIndicator>
 
                     <Box flexShrink='0'>
-                        <StepTitle>{step.title}</StepTitle>
-                        <StepDescription>{step.description}</StepDescription>
+                        <StepTitle fontSize='10px' color='gray.500'>{step.title}</StepTitle>
+                        <StepDescription fontSize='12px'>{step.description}</StepDescription>
                     </Box>
 
                     <StepSeparator />
