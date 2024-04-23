@@ -19,7 +19,7 @@ const StepOne = ({ boxStyle }) => {
           title={'Personal Info'}
           description={'Please provide your name, email address and phone number'}
           boxStyle={{
-            mb: '32px'
+            mb: '36px'
           }}
         />
         <MyInput

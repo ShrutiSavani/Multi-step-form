@@ -6,7 +6,7 @@ const CheckBoxSettings = ({ checkBoxOptions }) => {
 
     return (
         <CheckboxGroup colorScheme='green' defaultValue={['Online service', 'Larger storage']}>
-            <Flex direction='column' gap='8px'>
+            <Flex direction='column' gap='16px'>
                 {
                     checkBoxOptions.map((option, index) => {
                         return (
@@ -23,7 +23,11 @@ const CheckBoxSettings = ({ checkBoxOptions }) => {
                                 p='12px'
                                 _checked={{
                                     bg: 'blue.50'
-                                }}>
+                                }}
+                                _focusVisible={{
+                                    boxShadow: 'none'
+                                }}
+                            >
                                 <Flex
                                     gap='32px'
                                     minW='296px'

@@ -45,6 +45,9 @@ const StepTwo = ({ boxStyle }) => {
         <HeaderComponent
           title={'Select Your Plan'}
           description={'You have the option of monthly or yearly billing.'}
+          boxStyle={{
+            mb:'36px'
+          }}
         />
         <RadioSettings
           radioOptions={radioOptions}
@@ -52,7 +55,7 @@ const StepTwo = ({ boxStyle }) => {
           boxStyle={{
             gap: '0',
             justifyContent: 'space-between',
-            my: '40px'
+            mb:'40px'
           }}
         />
         <SwitchButton />
