@@ -26,25 +26,25 @@ const Form = () => {
                         borderRadius: '8px'
                     }}
                 />
-                {
-                    step === 0 ?
-                        <StepOne
-                            boxStyle={{
-                                p: '40px',
-                                flex: '5',
-                                maxW: '516px',
-                                border: '1px solid black'
-                            }}
-                        />
-                        :
-                        step === 1 ?
-                            <StepTwo />
+                <Box
+                    p='40px'
+                    flex='5'
+                    maxW='516px'
+                    border='1px solid black'
+                >
+                    {
+                        step === 0 ?
+                            <StepOne />
                             :
-                            step === 2 ?
-                                <StepThree />
+                            step === 1 ?
+                                <StepTwo />
                                 :
-                                <StepFour />
-                }
+                                step === 2 ?
+                                    <StepThree />
+                                    :
+                                    <StepFour />
+                    }
+                </Box>
             </Flex>
         </Box>
     )

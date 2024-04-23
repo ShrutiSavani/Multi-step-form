@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Icon, Image, Text, useRadio, useRadioGroup } from '@chakra-ui/react'
+import { Box, Flex, HStack, Image, useRadio, useRadioGroup } from '@chakra-ui/react'
 import React from 'react'
 import HeaderComponent from '../HeaderComponent'
 
@@ -32,10 +32,7 @@ function RadioCard(props) {
             >
                 <Image src={props.icon} w='32px' />
                 <Box>
-                    {/* <Text color='blue.600' fontWeight='600'>{props.type}</Text>
-                    <Text color='gray.500' fontSize='14px'>{props.price}</Text>
-                    <Text color='blue.500' fontSize='12PX'>{props.scheme ? props.scheme : ''}</Text> */}
-                    <HeaderComponent title={props.type} description={props.price} subDescription={props.scheme} type='text'/>
+                    <HeaderComponent title={props.type} description={props.price} subDescription={props.scheme} type='text' />
                 </Box>
             </Flex>
         </Box>

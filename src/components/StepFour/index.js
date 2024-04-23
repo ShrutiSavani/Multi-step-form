@@ -1,15 +1,28 @@
 import React, { useContext } from 'react'
-import { Box, Button, Text } from '@chakra-ui/react'
+import { Button, Flex } from '@chakra-ui/react'
 import { StepContext } from '../../context/StepContext'
 
-const StepFour = () => {
+const StepFour = ({ boxStyle }) => {
     const { goToPreviousStep } = useContext(StepContext)
 
     return (
-        <Box>
-            <Text>StepFour</Text>
-            <Button onClick={goToPreviousStep} variant='prev'>go back</Button>
-        </Box>
+        <Flex
+            direction='column'
+            {...boxStyle}
+        >
+            <Flex justifyContent='space-between'>
+                <Button onClick={goToPreviousStep} variant='prev'>go back</Button>
+                <Button
+                    bg='blue.800'
+                    variant='solid'
+                    _hover={{
+                        bg: 'blue.100',
+                        color: 'blue.600',
+                        borderColor: 'white'
+                    }}
+                >Confirm</Button>
+            </Flex>
+        </Flex>
     )
 }
 

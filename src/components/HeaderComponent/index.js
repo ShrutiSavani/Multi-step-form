@@ -13,23 +13,23 @@ const HeaderComponent = ({
     return (
         <Box>
             <Text
-                fontSize={type == 'text' ? '' : '28px'}
-                color={type == 'text' ? 'blue.600' : 'blue.700'}
+                fontSize={type === 'text' ? '' : '28px'}
+                color={type === 'text' ? 'blue.600' : 'blue.700'}
                 fontWeight='600'
                 {...titleStyle}
             >
                 {title}
             </Text>
             <Text
-                fontSize={type == 'text' ? '14px' : ''}
-                maxW={type == 'text' ? '210px' : 'none'}
+                fontSize={type === 'text' ? '14px' : ''}
+                maxW={type === 'text' ? '210px' : 'none'}
                 color='gray.500'
                 {...descriptionStyle}
             >
                 {description}
             </Text>
             <Text
-                fontSize={type == 'text' ? '12px' : ''}
+                fontSize={type === 'text' ? '12px' : ''}
                 color='blue.500'
                 {...subDescriptionStyle}
             >

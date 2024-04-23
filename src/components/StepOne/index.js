@@ -11,7 +11,8 @@ const StepOne = ({ boxStyle }) => {
   return (
     <Flex
       direction='column'
-      {...boxStyle}>
+      {...boxStyle}
+    >
       <HeaderComponent title={'Personal Info'} description={'Please provide your name, email address and phone number'} />
       <Box mt='32px'>
         <MyInput
@@ -33,18 +34,15 @@ const StepOne = ({ boxStyle }) => {
           placeholder={'e.g. +123456789'}
         />
       </Box>
-      <Box
-        display='flex'
+      <Flex
         justifyContent='flex-end'
         mt='80px'>
         <Button
           justifyContent='end'
           variant='solid'
-          w='fit-content'
-
           onClick={goToNextStep}
         >Next Step</Button>
-      </Box>
+      </Flex>
 
     </Flex>
   )
