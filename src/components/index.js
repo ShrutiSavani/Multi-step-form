@@ -3,11 +3,13 @@ import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import StepFour from './StepFour';
+import HeaderComponent from './HeaderComponent';
 
 export {
     StepperComponent,
     StepOne,
     StepTwo,
     StepThree,
-    StepFour
+    StepFour,
+    HeaderComponent
 }
