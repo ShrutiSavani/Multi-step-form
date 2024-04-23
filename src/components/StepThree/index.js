@@ -7,8 +7,8 @@ const StepThree = () => {
   return (
     <Box>
       <Text>StepThree</Text>
-      <Button onClick={goToPreviousStep}>go back</Button>
-      <Button onClick={goToNextStep}>next</Button>
+      <Button onClick={goToPreviousStep} variant='prev'>go back</Button>
+      <Button onClick={goToNextStep} variant='solid'>next</Button>
     </Box>
   )
 }

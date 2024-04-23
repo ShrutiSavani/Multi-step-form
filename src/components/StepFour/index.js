@@ -8,7 +8,7 @@ const StepFour = () => {
     return (
         <Box>
             <Text>StepFour</Text>
-            <Button onClick={goToPreviousStep}>go back</Button>
+            <Button onClick={goToPreviousStep} variant='prev'>go back</Button>
         </Box>
     )
 }
