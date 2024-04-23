@@ -5,6 +5,7 @@ import StepThree from './StepThree';
 import StepFour from './StepFour';
 import HeaderComponent from './HeaderComponent';
 import RadioSettings from './RadioSettings';
+import CheckBoxSettings from './CheckBoxSettings';
 
 export {
     StepperComponent,
@@ -13,5 +14,6 @@ export {
     StepThree,
     StepFour,
     HeaderComponent,
-    RadioSettings
+    RadioSettings,
+    CheckBoxSettings
 }
