@@ -9,7 +9,7 @@ function RadioCard(props) {
     const checkbox = getRadioProps()
 
     return (
-        <Box as='label'>
+        <Box as='label' >
             <input {...input} />
             <Flex
                 {...checkbox}
@@ -39,7 +39,7 @@ function RadioCard(props) {
     )
 }
 
-const RadioSettings = ({ radioOptions, name }) => {
+const RadioSettings = ({ radioOptions, name, boxStyle }) => {
 
     const { getRootProps, getRadioProps } = useRadioGroup({
         name,
@@ -49,7 +49,7 @@ const RadioSettings = ({ radioOptions, name }) => {
     const group = getRootProps()
 
     return (
-        <HStack {...group}>
+        <HStack {...group} {...boxStyle}>
             {radioOptions.map((option, index) => {
                 const radio = getRadioProps({ ...option, value: option.type })
                 return (

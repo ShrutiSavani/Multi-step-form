@@ -4,17 +4,24 @@ import { StepContext } from '../../context/StepContext'
 import HeaderComponent from '../HeaderComponent'
 import MyInput from '../MyInput'
 
-
 const StepOne = ({ boxStyle }) => {
   const { goToNextStep } = useContext(StepContext)
 
   return (
     <Flex
       direction='column'
+      justifyContent='space-between'
+      h='100%'
       {...boxStyle}
     >
-      <HeaderComponent title={'Personal Info'} description={'Please provide your name, email address and phone number'} />
-      <Box mt='32px'>
+      <Box>
+        <HeaderComponent
+          title={'Personal Info'}
+          description={'Please provide your name, email address and phone number'}
+          boxStyle={{
+            mb: '32px'
+          }}
+        />
         <MyInput
           lable={'Name'}
           placeholder={'e.g. Aamy Gyorge'}
@@ -36,7 +43,7 @@ const StepOne = ({ boxStyle }) => {
       </Box>
       <Flex
         justifyContent='flex-end'
-        mt='80px'>
+      >
         <Button
           justifyContent='end'
           variant='solid'

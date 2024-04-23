@@ -6,9 +6,17 @@ const SwitchButton = () => {
     const { checked, toggleSwitch } = useContext(SwitchContext)
 
     return (
-        <Box>
+        <Box
+            borderWidth='1px'
+            borderStyle='solid'
+            borderColor='blue.500'
+            borderRadius='4px'
+            p='8px 4px'
+            bg='blue.50'
+        >
             <Flex
                 gap='8px'
+                justifyContent='center'
                 alignItems='center'>
                 <Text
                     fontSize='14px'
@@ -18,7 +26,12 @@ const SwitchButton = () => {
                 >
                     Monthly
                 </Text>
-                <Switch onChange={() => toggleSwitch()} />
+                <Switch
+                    _focusVisible={{
+                        boxShadow: 'none'
+                    }}
+                    onChange={() => toggleSwitch()}
+                />
                 <Text
                     fontSize='14px'
                     fontWeight='600'

@@ -2,6 +2,7 @@ import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const HeaderComponent = ({
+    boxStyle,
     type,
     title,
     titleStyle,
@@ -11,7 +12,7 @@ const HeaderComponent = ({
     subDescriptionStyle
 }) => {
     return (
-        <Box>
+        <Box {...boxStyle}>
             <Text
                 fontSize={type === 'text' ? '' : '28px'}
                 color={type === 'text' ? 'blue.600' : 'blue.700'}

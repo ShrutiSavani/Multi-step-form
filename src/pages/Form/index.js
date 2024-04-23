@@ -12,24 +12,29 @@ const Form = () => {
             p='20px'
             border='1px solid black'>
             <Flex
-                gap='60px'
+                gap='40px'
                 justifyContent='center'
             >
-                <StepperComponent
-                    boxStyle={{
-                        p: '20px',
-                        pl: '80px',
-                        maxW: '340px',
-                        h: '320px',
-                        bg: 'pink',
-                        flex: '2',
-                        borderRadius: '8px'
-                    }}
-                />
+                <Box
+                    bg='pink'
+                    p='20px'
+                    pl='80px'
+                    flex='2'
+                    maxW='340px'
+                    borderRadius='8px'
+                >
+                    <StepperComponent
+                        boxStyle={{
+                            h: '320px',
+                        }}
+                    />
+                </Box>
+
                 <Box
                     p='40px'
                     flex='5'
                     maxW='516px'
+                    h='530px'
                     border='1px solid black'
                 >
                     {
