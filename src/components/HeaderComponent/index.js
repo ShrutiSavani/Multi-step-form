@@ -14,7 +14,7 @@ const HeaderComponent = ({
         <Box>
             <Text
                 fontSize={type == 'text' ? '' : '28px'}
-                color='blue.600'
+                color={type == 'text' ? 'blue.600' : 'blue.700'}
                 fontWeight='600'
                 {...titleStyle}
             >

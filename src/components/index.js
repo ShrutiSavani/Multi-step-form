@@ -7,6 +7,7 @@ import HeaderComponent from './HeaderComponent';
 import RadioSettings from './RadioSettings';
 import CheckBoxSettings from './CheckBoxSettings';
 import MyInput from './MyInput';
+import SwitchButton from './SwitchButton';
 
 export {
     StepperComponent,
@@ -17,5 +18,6 @@ export {
     HeaderComponent,
     RadioSettings,
     CheckBoxSettings,
-    MyInput
+    MyInput,
+    SwitchButton
 }
