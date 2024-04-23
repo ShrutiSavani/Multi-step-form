@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { Box, Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle, Stepper, useSteps } from '@chakra-ui/react'
 import { StepContext } from '../../context/StepContext'
 
-const StepperComponent = () => {
+const StepperComponent = ({ boxStyle }) => {
     const { step } = useContext(StepContext)
     const steps = [
         { title: 'STEP 1', description: 'YOUR INFO' },
@@ -21,7 +21,7 @@ const StepperComponent = () => {
     })
 
     return (
-        <Stepper index={activeStep} orientation='vertical' height='400px' gap='0'>
+        <Stepper index={activeStep} orientation='vertical' gap='0' {...boxStyle}>
             {steps.map((step, index) => (
                 <Step key={index}>
                     <StepIndicator>

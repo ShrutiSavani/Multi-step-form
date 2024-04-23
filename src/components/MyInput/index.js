@@ -21,8 +21,7 @@ const MyInput = ({
                 {lable} :
             </Text>
             <Input
-                mt='8px'
-                w='376px'
+                mt='4px'
                 color='blue.600'
                 placeholder={placeholder}
                 _hover={{

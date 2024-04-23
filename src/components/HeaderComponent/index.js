@@ -22,7 +22,7 @@ const HeaderComponent = ({
             </Text>
             <Text
                 fontSize={type == 'text' ? '14px' : ''}
-                maxW='210px'
+                maxW={type == 'text' ? '210px' : 'none'}
                 color='gray.500'
                 {...descriptionStyle}
             >
