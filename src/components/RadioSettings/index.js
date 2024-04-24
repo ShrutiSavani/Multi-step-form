@@ -46,19 +46,19 @@ function RadioCard(props) {
     )
 }
 
-const RadioSettings = ({ radioOptions, name, boxStyle }) => {
+const RadioSettings = ({ radioOptions, name, boxStyle, onValueChange }) => {
 
     const { getRootProps, getRadioProps } = useRadioGroup({
         name,
-        defaultValue: radioOptions[0].type,
-        onChange: console.log,
+        defaultValue: radioOptions[0].id,
+        onChange: onValueChange,
     })
     const group = getRootProps()
 
     return (
         <HStack {...group} {...boxStyle}>
             {radioOptions.map((option, index) => {
-                const radio = getRadioProps({ ...option, value: option.type })
+                const radio = getRadioProps({ ...option, value: option.id })
                 return (
                     <RadioCard key={index} {...radio} />
                 )

@@ -13,10 +13,11 @@ import { SwitchContext } from '../../context/SwitchContext'
 
 const StepTwo = ({ boxStyle }) => {
   const { goToPreviousStep, goToNextStep } = useContext(StepContext)
-  const { checked } = useContext(SwitchContext)
+  const { checked, pushToArray } = useContext(SwitchContext)
 
   const radioOptions = [
     {
+      id: '1',
       type: 'Arcade',
       priceM: 9,
       priceY: 90,
@@ -24,6 +25,7 @@ const StepTwo = ({ boxStyle }) => {
       scheme: '2 months free'
     },
     {
+      id: '2',
       type: 'Advanced',
       priceM: 12,
       priceY: 120,
@@ -31,6 +33,7 @@ const StepTwo = ({ boxStyle }) => {
       scheme: '2 months free'
     },
     {
+      id: '3',
       type: 'Pro',
       priceM: 15,
       priceY: 150,
@@ -38,6 +41,13 @@ const StepTwo = ({ boxStyle }) => {
       scheme: '2 months free'
     }
   ]
+
+  let index = 0
+  const onValueChange = (id) => {
+    index = radioOptions.findIndex((option) => {
+      return option.id === id
+    })
+  }
 
   return (
     <Flex
@@ -62,6 +72,8 @@ const StepTwo = ({ boxStyle }) => {
             justifyContent: 'space-between',
             mb: '40px'
           }}
+          onValueChange={onValueChange}
+          checked={checked}
         />
         <SwitchButton />
       </Box>
@@ -69,7 +81,7 @@ const StepTwo = ({ boxStyle }) => {
       <Flex
         justifyContent='space-between'>
         <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
-        <Button onClick={goToNextStep} variant='solid'>Next Step</Button>
+        <Button onClick={() => { goToNextStep(); pushToArray(radioOptions[index]) }} variant='solid' >Next Step</Button>
       </Flex>
     </Flex>
   )
