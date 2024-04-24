@@ -4,22 +4,28 @@ import { StepContext } from '../../context/StepContext'
 
 import HeaderComponent from '../HeaderComponent'
 import CheckBoxSettings from '../CheckBoxSettings'
+import { SwitchContext } from '../../context/SwitchContext'
 
 const StepThree = ({ boxStyle }) => {
+  const { goToPreviousStep, goToNextStep } = useContext(StepContext)
+  const { addToArray } = useContext(SwitchContext)
   const checkBoxOptions = [
     {
+      id: 1,
       type: 'Online service',
       about: 'Access to multiplayer games',
       priceM: 1,
       priceY: 10
     },
     {
+      id: 2,
       type: 'Larger storage',
       about: 'Extra 1TB of cloud save',
       priceM: 2,
       priceY: 20
     },
     {
+      id: 3,
       type: 'Custmizable profile',
       about: 'Custome themes on your profile',
       priceM: 2,
@@ -27,7 +33,10 @@ const StepThree = ({ boxStyle }) => {
     },
   ]
 
-  const { goToPreviousStep, goToNextStep } = useContext(StepContext)
+
+  const onValueChange = (object) => {
+    addToArray(object)
+  }
 
   return (
     <Flex
@@ -44,11 +53,11 @@ const StepThree = ({ boxStyle }) => {
             mb: '36px'
           }}
         />
-        <CheckBoxSettings checkBoxOptions={checkBoxOptions} />
+        <CheckBoxSettings checkBoxOptions={checkBoxOptions} onValueChange={onValueChange} />
       </Box>
       <Flex justifyContent='space-between'>
         <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
-        <Button onClick={goToNextStep} variant='solid'>Next Step</Button>
+        <Button onClick={() => goToNextStep()} variant='solid'>Next Step</Button>
       </Flex>
     </Flex>
   )

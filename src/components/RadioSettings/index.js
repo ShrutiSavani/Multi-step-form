@@ -48,9 +48,15 @@ function RadioCard(props) {
 
 const RadioSettings = ({ radioOptions, name, boxStyle, onValueChange }) => {
 
+    const { selectedSchemesArray } = useContext(SwitchContext)
+
+    const index = radioOptions.findIndex((option) => {
+        return option.slug === selectedSchemesArray[0].slug
+    })
+
     const { getRootProps, getRadioProps } = useRadioGroup({
         name,
-        defaultValue: radioOptions[0].id,
+        defaultValue: radioOptions[index].slug,
         onChange: onValueChange,
     })
     const group = getRootProps()
@@ -58,7 +64,7 @@ const RadioSettings = ({ radioOptions, name, boxStyle, onValueChange }) => {
     return (
         <HStack {...group} {...boxStyle}>
             {radioOptions.map((option, index) => {
-                const radio = getRadioProps({ ...option, value: option.id })
+                const radio = getRadioProps({ ...option, value: option.slug })
                 return (
                     <RadioCard key={index} {...radio} />
                 )
