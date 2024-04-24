@@ -3,10 +3,22 @@ import { Box, Button, Divider, Flex, Text } from '@chakra-ui/react'
 import { StepContext } from '../../context/StepContext'
 
 import HeaderComponent from '../HeaderComponent'
+import { SwitchContext } from '../../context/SwitchContext'
 
 const StepFour = ({ boxStyle }) => {
     const { goToPreviousStep, goToNextStep } = useContext(StepContext)
+    const { checked, selectedSchemesArray, selectedCheckboxesArray } = useContext(SwitchContext)
 
+    let totalAmount
+    if (!checked) {
+        totalAmount = selectedSchemesArray[0].priceM + selectedCheckboxesArray.reduce((accu, curr) => {
+            return accu + curr.priceM
+        }, 0)
+    } else {
+        totalAmount = selectedSchemesArray[0].priceY + selectedCheckboxesArray.reduce((accu, curr) => {
+            return accu + curr.priceY
+        }, 0)
+    }
     return (
         <Flex
             direction='column'
@@ -32,28 +44,33 @@ const StepFour = ({ boxStyle }) => {
                         justifyContent='space-between'
                     >
                         <Box>
-                            <Text color='blue.700' fontWeight='600'>Arcade (monthly)</Text>
+                            <Flex color='blue.700' fontWeight='600'>
+                                <Text>{selectedSchemesArray[0].type}</Text>
+                                <Text>({!checked ? 'monthly' : 'yearly'})</Text>
+                            </Flex>
                             <Text
                                 textDecoration='underline'
                                 color='gray.500'
                                 _hover={{
-                                    color:'purple.600',
-                                    textDecoration:'underline',
+                                    color: 'purple.600',
+                                    textDecoration: 'underline',
                                     cursor: 'pointer'
                                 }}>Change</Text>
                         </Box>
-                        <Text 
-                        fontWeight='600'color='blue.700'>$9/mo</Text>
+                        <Text
+                            fontWeight='600' color='blue.700'>${!checked ? `${selectedSchemesArray[0].priceM}/mo` : `${selectedSchemesArray[0].priceY}/yr`}</Text>
                     </Flex>
                     <Divider my='12px' />
-                    <Flex justifyContent='space-between' mb='4px'>
-                        <Text color='gray.500'>Online service</Text>
-                        <Text color='blue.700'>$1/mo</Text>
-                    </Flex>
-                    <Flex justifyContent='space-between'>
-                        <Text color='gray.500'>Larger storage</Text>
-                        <Text color='blue.700'>$2/mo</Text>
-                    </Flex>
+                    {
+                        selectedCheckboxesArray.map((option) => {
+                            return (
+                                <Flex justifyContent='space-between' mb='4px'>
+                                    <Text color='gray.500'>{option.type}</Text>
+                                    <Text color='blue.700'>${!checked ? `${option.priceM}/mo` : `${option.priceY}/yr`}</Text>
+                                </Flex>
+                            )
+                        })
+                    }
                 </Box>
                 <Flex
                     justifyContent='space-between'
@@ -65,7 +82,7 @@ const StepFour = ({ boxStyle }) => {
                         fontSize='20px'
                         fontWeight='600'
                         color='blue.800'
-                    >+$12/mo</Text>
+                    >+${totalAmount}/mo</Text>
                 </Flex>
             </Box>
             <Flex justifyContent='space-between'>
@@ -78,7 +95,7 @@ const StepFour = ({ boxStyle }) => {
                         color: 'blue.600',
                         borderColor: 'white'
                     }}
-                    onClick={()=>goToNextStep()}
+                    onClick={() => goToNextStep()}
                 >Confirm</Button>
             </Flex>
         </Flex>

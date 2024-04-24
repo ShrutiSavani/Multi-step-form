@@ -36,7 +36,6 @@ const SwitchProvider = ({ children }) => {
     }
 
     const pushToArray = (object) => {
-        console.log(object)
         if (selectedSchemesArray.length !== 0) {
             const cloneArray = [...selectedSchemesArray]
             const updatedArray = cloneArray.splice(0, 1)
@@ -58,7 +57,6 @@ const SwitchProvider = ({ children }) => {
                 const arrayAfterSplice = cloneArray.splice(index, 1)
                 setSelectedBoxesArray(cloneArray)
             }
-            console.log('up', selectedCheckboxesArray)
         }
     }
 
