@@ -1,9 +1,10 @@
 import { Box, Checkbox, CheckboxGroup, Flex, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext } from 'react'
 import HeaderComponent from '../HeaderComponent'
+import { SwitchContext } from '../../context/SwitchContext'
 
 const CheckBoxSettings = ({ checkBoxOptions }) => {
-
+    const { checked } = useContext(SwitchContext)
     return (
         <CheckboxGroup colorScheme='green' defaultValue={['Online service', 'Larger storage']}>
             <Flex direction='column' gap='16px'>
@@ -37,7 +38,13 @@ const CheckBoxSettings = ({ checkBoxOptions }) => {
                                     <Box>
                                         <HeaderComponent title={option.type} description={option.about} type='text' />
                                     </Box>
-                                    <Text color='blue.500'>+{option.price}</Text>
+                                    {
+                                        !checked ?
+                                            <Text color='blue.500'>+${option.priceM}/mo</Text>
+                                            :
+                                            <Text color='blue.500'>+${option.priceY}/yr</Text>
+                                    }
+
                                 </Flex>
                             </Checkbox>
                         )

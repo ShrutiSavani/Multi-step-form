@@ -10,17 +10,20 @@ const StepThree = ({ boxStyle }) => {
     {
       type: 'Online service',
       about: 'Access to multiplayer games',
-      price: '$1/mo'
+      priceM: 1,
+      priceY: 10
     },
     {
       type: 'Larger storage',
       about: 'Extra 1TB of cloud save',
-      price: '$2/mo'
+      priceM: 2,
+      priceY: 20
     },
     {
       type: 'Custmizable profile',
       about: 'Custome themes on your profile',
-      price: '$2/mo'
+      priceM: 2,
+      priceY: 20
     },
   ]
 
@@ -34,14 +37,14 @@ const StepThree = ({ boxStyle }) => {
       {...boxStyle}
     >
       <Box>
-        <HeaderComponent 
-        title={'Pick add-ons'} 
-        description={'Add-ons help snhance your gaming experience.'} 
-        boxStyle={{
-          mb:'36px'
-        }}
+        <HeaderComponent
+          title={'Pick add-ons'}
+          description={'Add-ons help snhance your gaming experience.'}
+          boxStyle={{
+            mb: '36px'
+          }}
         />
-        <CheckBoxSettings checkBoxOptions={checkBoxOptions}/>
+        <CheckBoxSettings checkBoxOptions={checkBoxOptions} />
       </Box>
       <Flex justifyContent='space-between'>
         <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>

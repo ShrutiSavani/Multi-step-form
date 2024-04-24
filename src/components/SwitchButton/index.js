@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { SwitchContext } from '../../context/SwitchContext'
 
 const SwitchButton = () => {
+    //checked == false == 'monthly'
     const { checked, toggleSwitch } = useContext(SwitchContext)
 
     return (
@@ -27,6 +28,9 @@ const SwitchButton = () => {
                     Monthly
                 </Text>
                 <Switch
+                    _checked={{
+                        boxShadow: 'none'
+                    }}
                     _focusVisible={{
                         boxShadow: 'none'
                     }}

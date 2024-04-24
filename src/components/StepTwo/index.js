@@ -9,26 +9,31 @@ import arcadeIcon from '../../assets/icon-arcade.svg'
 import advancedIcon from '../../assets/icon-advanced.svg'
 import proIcon from '../../assets/icon-pro.svg'
 import SwitchButton from '../SwitchButton'
+import { SwitchContext } from '../../context/SwitchContext'
 
 const StepTwo = ({ boxStyle }) => {
   const { goToPreviousStep, goToNextStep } = useContext(StepContext)
+  const { checked } = useContext(SwitchContext)
 
   const radioOptions = [
     {
       type: 'Arcade',
-      price: '$9/mo',
+      priceM: 9,
+      priceY: 90,
       icon: arcadeIcon,
       scheme: '2 months free'
     },
     {
       type: 'Advanced',
-      price: '$12/mo',
+      priceM: 12,
+      priceY: 120,
       icon: advancedIcon,
       scheme: '2 months free'
     },
     {
       type: 'Pro',
-      price: '$15/mo',
+      priceM: 15,
+      priceY: 150,
       icon: proIcon,
       scheme: '2 months free'
     }
@@ -46,7 +51,7 @@ const StepTwo = ({ boxStyle }) => {
           title={'Select Your Plan'}
           description={'You have the option of monthly or yearly billing.'}
           boxStyle={{
-            mb:'36px'
+            mb: '36px'
           }}
         />
         <RadioSettings
@@ -55,7 +60,7 @@ const StepTwo = ({ boxStyle }) => {
           boxStyle={{
             gap: '0',
             justifyContent: 'space-between',
-            mb:'40px'
+            mb: '40px'
           }}
         />
         <SwitchButton />

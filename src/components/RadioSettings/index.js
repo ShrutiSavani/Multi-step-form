@@ -1,10 +1,11 @@
 import { Box, Flex, HStack, Image, useRadio, useRadioGroup } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext } from 'react'
 import HeaderComponent from '../HeaderComponent'
+import { SwitchContext } from '../../context/SwitchContext'
 
 function RadioCard(props) {
     const { getInputProps, getRadioProps } = useRadio(props)
-
+    const { checked } = useContext(SwitchContext)
     const input = getInputProps()
     const checkbox = getRadioProps()
 
@@ -32,7 +33,13 @@ function RadioCard(props) {
             >
                 <Image src={props.icon} w='32px' />
                 <Box>
-                    <HeaderComponent title={props.type} description={props.price} subDescription={props.scheme} type='text' />
+                    {
+                        !checked ?
+                            <HeaderComponent title={props.type} description={`$${props.priceM}/mo`} type='text' />
+                            :
+                            <HeaderComponent title={props.type} description={`$${props.priceY}/yr`} subDescription={props.scheme} type='text' />
+                    }
+
                 </Box>
             </Flex>
         </Box>
