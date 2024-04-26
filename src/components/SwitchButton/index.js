@@ -28,6 +28,7 @@ const SwitchButton = () => {
                     Monthly
                 </Text>
                 <Switch
+                    isChecked={checked}
                     _checked={{
                         boxShadow: 'none'
                     }}

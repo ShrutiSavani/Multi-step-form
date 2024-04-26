@@ -19,6 +19,7 @@ const StepFour = ({ boxStyle }) => {
             return accu + curr.priceY
         }, 0)
     }
+    
     return (
         <Flex
             direction='column'
