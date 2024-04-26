@@ -4,22 +4,13 @@ import { StepContext } from '../../context/StepContext'
 
 import HeaderComponent from '../HeaderComponent'
 import { SwitchContext } from '../../context/SwitchContext'
+import useTotalAmount from '../../hooks/UseTotalAmount'
 
 const StepFour = ({ boxStyle }) => {
     const { goToPreviousStep, goToNextStep } = useContext(StepContext)
     const { checked, selectedSchemesArray, selectedCheckboxesArray } = useContext(SwitchContext)
+    const { totalAmount } = useTotalAmount()
 
-    let totalAmount
-    if (!checked) {
-        totalAmount = selectedSchemesArray[0].priceM + selectedCheckboxesArray.reduce((accu, curr) => {
-            return accu + curr.priceM
-        }, 0)
-    } else {
-        totalAmount = selectedSchemesArray[0].priceY + selectedCheckboxesArray.reduce((accu, curr) => {
-            return accu + curr.priceY
-        }, 0)
-    }
-    
     return (
         <Flex
             direction='column'

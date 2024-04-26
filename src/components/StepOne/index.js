@@ -1,11 +1,28 @@
 import { Box, Button, Flex } from '@chakra-ui/react'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { StepContext } from '../../context/StepContext'
 import HeaderComponent from '../HeaderComponent'
 import MyInput from '../MyInput'
+import { AuthContext } from '../../context/AuthContext'
 
 const StepOne = ({ boxStyle }) => {
   const { goToNextStep } = useContext(StepContext)
+  const {
+    handleFormValidation,
+    nameError,
+    emailError,
+    phoneNoError,
+  } = useContext(AuthContext)
+
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phoneNo, setPhoneNo] = useState('')
+
+  const formData = { name: name, email: email, phoneNo: phoneNo }
+
+  const handleValidation = () => {
+    handleFormValidation(formData, goToNextStep)
+  }
 
   return (
     <Flex
@@ -25,6 +42,9 @@ const StepOne = ({ boxStyle }) => {
         <MyInput
           lable={'Name'}
           placeholder={'e.g. Aamy Gyorge'}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          error={nameError}
         />
         <MyInput
           boxStyle={{
@@ -32,13 +52,19 @@ const StepOne = ({ boxStyle }) => {
           }}
           lable={'Email address'}
           placeholder={'e.g. Aamy@abcd.in'}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          error={emailError}
         />
         <MyInput
           boxStyle={{
             mt: '20px'
           }}
           lable={'Phone No.'}
-          placeholder={'e.g. +123456789'}
+          placeholder={'e.g. +1 234 567 89'}
+          value={phoneNo}
+          onChange={(e) => setPhoneNo(e.target.value)}
+          error={phoneNoError}
         />
       </Box>
       <Flex
@@ -47,7 +73,7 @@ const StepOne = ({ boxStyle }) => {
         <Button
           justifyContent='end'
           variant='solid'
-          onClick={goToNextStep}
+          onClick={() => { handleValidation() }}
         >Next Step</Button>
       </Flex>
 

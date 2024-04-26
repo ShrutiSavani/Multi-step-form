@@ -3,7 +3,6 @@ import { createContext, useState } from 'react';
 export const SwitchContext = createContext()
 
 const SwitchProvider = ({ children }) => {
-    const [checked, setCheckd] = useState(false)
 
     const defaultArrayRadio = [{
         id: 1,
@@ -13,7 +12,6 @@ const SwitchProvider = ({ children }) => {
         priceY: 90,
         scheme: '2 months free'
     },]
-    const [selectedSchemesArray, setSelectedSchemeArray] = useState(defaultArrayRadio)
 
     const defaultArrayCheck = [{
         id: 1,
@@ -29,6 +27,9 @@ const SwitchProvider = ({ children }) => {
         priceM: 2,
         priceY: 20
     }]
+
+    const [checked, setCheckd] = useState(false)
+    const [selectedSchemesArray, setSelectedSchemeArray] = useState(defaultArrayRadio)
     const [selectedCheckboxesArray, setSelectedBoxesArray] = useState(defaultArrayCheck)
 
     const toggleSwitch = () => {

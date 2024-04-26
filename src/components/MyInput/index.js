@@ -1,4 +1,4 @@
-import { Box, Input, Text } from '@chakra-ui/react'
+import { Box, Flex, Input, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const MyInput = ({
@@ -7,19 +7,32 @@ const MyInput = ({
     lableStyle,
     inputStyle,
     placeholder,
+    value,
+    onChange,
+    error,
 }) => {
     return (
         <Box
             my='8px'
             {...boxStyle}
         >
-            <Text
-                fontWeight='600'
-                color='blue.600'
-                {...lableStyle}
-            >
-                {lable} :
-            </Text>
+            <Flex justifyContent='space-between'>
+                <Text
+                    fontWeight='600'
+                    color='blue.600'
+                    {...lableStyle}
+                >
+                    {lable} :
+                </Text>
+                <Text
+                    fontWeight='600'
+                    fontSize='14px'
+                    color='red'
+                    {...lableStyle}
+                >
+                    {error}
+                </Text>
+            </Flex>
             <Input
                 mt='4px'
                 color='blue.600'
@@ -36,6 +49,8 @@ const MyInput = ({
                     borderStyle: 'solid',
                     borderColor: 'blue.500'
                 }}
+                value={value}
+                onChange={onChange}
                 {...inputStyle}
             />
         </Box>
