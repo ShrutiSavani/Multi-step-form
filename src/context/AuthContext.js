@@ -4,6 +4,10 @@ export const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
 
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phoneNo, setPhoneNo] = useState('')
+
     const [nameError, setNameError] = useState('')
     const [emailError, setEmailError] = useState('')
     const [phoneNoError, setPhoneNoError] = useState('')
@@ -46,8 +50,14 @@ const AuthProvider = ({ children }) => {
     return (
         <AuthContext.Provider value={{
             handleFormValidation,
+            name,
+            setName,
             nameError,
+            email,
+            setEmail,
             emailError,
+            phoneNo,
+            setPhoneNo,
             phoneNoError,
         }}>
             {children}

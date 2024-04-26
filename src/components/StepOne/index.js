@@ -9,14 +9,16 @@ const StepOne = ({ boxStyle }) => {
   const { goToNextStep } = useContext(StepContext)
   const {
     handleFormValidation,
+    name,
+    setName,
     nameError,
+    email,
+    setEmail,
     emailError,
+    phoneNo,
+    setPhoneNo,
     phoneNoError,
   } = useContext(AuthContext)
-
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phoneNo, setPhoneNo] = useState('')
 
   const formData = { name: name, email: email, phoneNo: phoneNo }
 
