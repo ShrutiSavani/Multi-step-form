@@ -7,7 +7,7 @@ import { SwitchContext } from '../../context/SwitchContext'
 import useTotalAmount from '../../hooks/UseTotalAmount'
 
 const StepFour = ({ boxStyle }) => {
-    const { goToPreviousStep, goToNextStep } = useContext(StepContext)
+    const { setStep, goToPreviousStep, goToNextStep } = useContext(StepContext)
     const { checked, selectedSchemesArray, selectedCheckboxesArray } = useContext(SwitchContext)
     const { totalAmount } = useTotalAmount()
 
@@ -47,7 +47,11 @@ const StepFour = ({ boxStyle }) => {
                                     color: 'purple.600',
                                     textDecoration: 'underline',
                                     cursor: 'pointer'
-                                }}>Change</Text>
+                                }}
+                                onClick={() => setStep(0)}
+                            >
+                                Change
+                            </Text>
                         </Box>
                         <Text
                             fontWeight='600' color='blue.700'>${!checked ? `${selectedSchemesArray[0].priceM}/mo` : `${selectedSchemesArray[0].priceY}/yr`}</Text>

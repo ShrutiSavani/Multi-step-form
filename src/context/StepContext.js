@@ -16,6 +16,7 @@ const StepProvider = ({ children }) => {
     return (
         <StepContext.Provider value={{
             step,
+            setStep,
             goToNextStep,
             goToPreviousStep
         }}>
