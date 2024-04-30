@@ -1,16 +1,26 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [phoneNo, setPhoneNo] = useState('')
+    const data = JSON.parse(localStorage.getItem('userdata')) || ''
+    // const [name, setName] = useState(localStorage.getItem('name') || '')
+
+    const [name, setName] = useState('' || data.name)
+    const [email, setEmail] = useState('' || data.email)
+    const [phoneNo, setPhoneNo] = useState('' || data.phoneNo)
 
     const [nameError, setNameError] = useState('')
     const [emailError, setEmailError] = useState('')
     const [phoneNoError, setPhoneNoError] = useState('')
+
+    useEffect(() => {
+        // localStorage.setItem('name', (name))
+
+        const userdata = { name: name, email: email, phoneNo: phoneNo }
+        localStorage.setItem('userdata', JSON.stringify(userdata))
+    }, [name, email, phoneNo])
 
     const handleFormValidation = (goToNextStep) => {
 
