@@ -10,10 +10,8 @@ import advancedIcon from '../../assets/icon-advanced.svg'
 import proIcon from '../../assets/icon-pro.svg'
 import SwitchButton from '../SwitchButton'
 import { SwitchContext } from '../../context/SwitchContext'
-import useWindowsWidth from '../../hooks/UseWindowsWidth'
 
 const StepTwo = ({ boxStyle }) => {
-  const { width } = useWindowsWidth()
   const { goToPreviousStep, goToNextStep } = useContext(StepContext)
   const { checked, pushToArray } = useContext(SwitchContext)
 
@@ -85,10 +83,10 @@ const StepTwo = ({ boxStyle }) => {
 
       <Flex
         justifyContent='space-between'
-        display={{ base: 'none', md: 'block' }}
+        display={{ base: 'none', md: 'flex' }}
       >
-          <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
-          <Button onClick={() => goToNextStep()} variant='solid' >Next Step</Button>
+        <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
+        <Button onClick={() => goToNextStep()} variant='solid' >Next Step</Button>
       </Flex>
     </Flex>
   )

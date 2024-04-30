@@ -1,0 +1,23 @@
+.stepIsCompleted {
+  color: #0d4a70 !important;
+}
+
+.stepIsInCompleted {
+  color: #7aaac9;
+}
+
+.stepIsActive {
+  color: white;
+}
+
+.ylpnre div[data-status='complete'] {
+  background-color: white;
+}
+
+.ylpnre div[data-status='active'] {
+  border-color: white;
+}
+
+.ylpnre div[data-status='incomplete'] {
+  border-color: #7aaac9 !important;
+}

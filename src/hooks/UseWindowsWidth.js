@@ -6,7 +6,7 @@ const useWindowsWidth = () => {
     useEffect(() => {
         setWidth(window.innerWidth)
     }, [window.innerWidth])
-    
+
     return {
         width
     }

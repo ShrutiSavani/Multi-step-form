@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
-import { Box, Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle, Stepper, useSteps } from '@chakra-ui/react'
+import { Step, StepIcon, StepIndicator, StepNumber, StepStatus, Stepper, useSteps } from '@chakra-ui/react'
 import { StepContext } from '../../context/StepContext'
-
+import style from './index.module.css'
 
 const StepperMobile = ({ boxStyle }) => {
 
@@ -27,16 +27,14 @@ const StepperMobile = ({ boxStyle }) => {
         <Stepper index={activeStep} gap='0' {...boxStyle} >
 
             {steps.map((step, index) => (
-                <Step key={index}>
+                <Step key={index} className={style.ylpnre}>
                     <StepIndicator>
                         <StepStatus
-                            complete={<StepIcon />}
-                            incomplete={<StepNumber />}
-                            active={<StepNumber />}
+                            complete={<StepIcon className={style.stepIsCompleted} />}
+                            incomplete={<StepNumber className={style.stepIsInCompleted} />}
+                            active={<StepNumber className={style.stepIsActive} />}
                         />
                     </StepIndicator>
-
-                    <StepSeparator />
                 </Step>
             ))}
         </Stepper>

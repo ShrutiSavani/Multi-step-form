@@ -8,14 +8,7 @@ import { AuthContext } from '../../context/AuthContext'
 const MobileUI = () => {
   const { step, goToPreviousStep, goToNextStep } = useContext(StepContext)
 
-  const {
-    handleFormValidation,
-    name,
-    email,
-    phoneNo,
-  } = useContext(AuthContext)
-
-  const formData = { name: name, email: email, phoneNo: phoneNo }
+  const { handleFormValidation } = useContext(AuthContext)
 
   return (
     <Box
@@ -29,7 +22,6 @@ const MobileUI = () => {
         alignItems='center'
       >
         <Box
-          bg='blue.50'
           p='12px'
           flex='2'
           maxW='fit-content'
@@ -50,9 +42,11 @@ const MobileUI = () => {
                 justifyContent='flex-end'
               >
                 <Button
+                  p='8px'
+                  h='auto'
                   justifyContent='end'
                   variant='solid'
-                  onClick={() => { handleFormValidation(formData, goToNextStep) }}
+                  onClick={() => { handleFormValidation(goToNextStep) }}
                 >
                   Next Step</Button>
               </Flex>
@@ -64,15 +58,24 @@ const MobileUI = () => {
                   w='100%'
                   justifyContent='space-between'
                 >
-                  <Button variant='prev' onClick={goToPreviousStep}>Go Back</Button>
-                  <Button variant='solid' onClick={goToNextStep}>Next Step</Button>
+                  <Button p='8px'
+                    h='auto' variant='prev' onClick={goToPreviousStep}>Go Back</Button>
+                  <Button p='8px'
+                    h='auto' variant='solid' onClick={goToNextStep}>Next Step</Button>
                 </Flex>
                 :
                 step === 3 ?
                   <Flex justifyContent='space-between' p='24px 12px'
                     w='100%'>
-                    <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
                     <Button
+                      p='8px'
+                      h='auto'
+                      onClick={goToPreviousStep}
+                      variant='prev'
+                    >Go Back</Button>
+                    <Button
+                      p='8px'
+                      h='auto'
                       bg='blue.800'
                       variant='solid'
                       _hover={{

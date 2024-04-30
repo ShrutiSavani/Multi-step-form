@@ -1,5 +1,5 @@
 import Form from './Form';
 
-export{
+export {
     Form
 }

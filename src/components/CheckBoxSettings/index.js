@@ -1,5 +1,5 @@
 import { Box, Checkbox, Flex, Text } from '@chakra-ui/react'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import HeaderComponent from '../HeaderComponent'
 import { SwitchContext } from '../../context/SwitchContext'
 
@@ -56,4 +56,4 @@ const CheckBoxSettings = ({ checkBoxOptions, onValueChange }) => {
     )
 }
 
-export default CheckBoxSettings
+export default CheckBoxSettings;

@@ -5,10 +5,8 @@ import { StepContext } from '../../context/StepContext'
 import HeaderComponent from '../HeaderComponent'
 import CheckBoxSettings from '../CheckBoxSettings'
 import { SwitchContext } from '../../context/SwitchContext'
-import useWindowsWidth from '../../hooks/UseWindowsWidth'
 
 const StepThree = ({ boxStyle }) => {
-  const { width } = useWindowsWidth()
   const { goToPreviousStep, goToNextStep } = useContext(StepContext)
   const { addToArray } = useContext(SwitchContext)
   const checkBoxOptions = [
@@ -57,9 +55,9 @@ const StepThree = ({ boxStyle }) => {
         />
         <CheckBoxSettings checkBoxOptions={checkBoxOptions} onValueChange={onValueChange} />
       </Box>
-      <Flex justifyContent='space-between' display={{ base: 'none', md: 'block' }}>
-                <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
-                <Button onClick={() => goToNextStep()} variant='solid'>Next Step</Button>
+      <Flex justifyContent='space-between' display={{ base: 'none', md: 'flex' }}>
+        <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
+        <Button onClick={() => goToNextStep()} variant='solid'>Next Step</Button>
       </Flex>
     </Flex>
   )

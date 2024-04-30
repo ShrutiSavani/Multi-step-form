@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Image, useRadio, useRadioGroup } from '@chakra-ui/react'
+import { Box, Flex, Image, useRadio, useRadioGroup } from '@chakra-ui/react'
 import React, { useContext } from 'react'
 import HeaderComponent from '../HeaderComponent'
 import { SwitchContext } from '../../context/SwitchContext'
@@ -14,9 +14,9 @@ function RadioCard(props) {
             <input {...input} />
             <Flex
                 {...checkbox}
-                direction={{base:'row',md:'column'}}
+                direction={{ base: 'row', md: 'column' }}
                 gap='36px'
-                justifyContent={{base:'',md:'space-between'}}
+                justifyContent={{ base: '', md: 'space-between' }}
                 cursor='pointer'
                 borderWidth='1px'
                 borderRadius='8px'
@@ -62,9 +62,9 @@ const RadioSettings = ({ radioOptions, name, boxStyle, onValueChange }) => {
     const group = getRootProps()
 
     return (
-        <Flex 
-        flexDirection={{ base: 'column', md: 'row' }}  
-        {...group} {...boxStyle}>
+        <Flex
+            flexDirection={{ base: 'column', md: 'row' }}
+            {...group} {...boxStyle}>
             {radioOptions.map((option, index) => {
                 const radio = getRadioProps({ ...option, value: option.slug })
                 return (
