@@ -10,8 +10,10 @@ import advancedIcon from '../../assets/icon-advanced.svg'
 import proIcon from '../../assets/icon-pro.svg'
 import SwitchButton from '../SwitchButton'
 import { SwitchContext } from '../../context/SwitchContext'
+import useWindowsWidth from '../../hooks/UseWindowsWidth'
 
 const StepTwo = ({ boxStyle }) => {
+  const { width } = useWindowsWidth()
   const { goToPreviousStep, goToNextStep } = useContext(StepContext)
   const { checked, pushToArray } = useContext(SwitchContext)
 
@@ -71,7 +73,7 @@ const StepTwo = ({ boxStyle }) => {
           radioOptions={radioOptions}
           name={'monthly'}
           boxStyle={{
-            gap: '0',
+            gap: { base: '16px', md: '0' },
             justifyContent: 'space-between',
             mb: '40px'
           }}
@@ -82,9 +84,11 @@ const StepTwo = ({ boxStyle }) => {
       </Box>
 
       <Flex
-        justifyContent='space-between'>
-        <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
-        <Button onClick={() => goToNextStep()} variant='solid' >Next Step</Button>
+        justifyContent='space-between'
+        display={{ base: 'none', md: 'block' }}
+      >
+          <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
+          <Button onClick={() => goToNextStep()} variant='solid' >Next Step</Button>
       </Flex>
     </Flex>
   )

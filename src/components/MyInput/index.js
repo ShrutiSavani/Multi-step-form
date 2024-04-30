@@ -18,6 +18,7 @@ const MyInput = ({
         >
             <Flex justifyContent='space-between'>
                 <Text
+                    fontSize={{ base: '14px', md: '16px' }}
                     fontWeight='600'
                     color='blue.600'
                     {...lableStyle}
@@ -26,7 +27,7 @@ const MyInput = ({
                 </Text>
                 <Text
                     fontWeight='600'
-                    fontSize='14px'
+                    fontSize={{ base: '12px', md: '14px' }}
                     color='red'
                     {...lableStyle}
                 >
@@ -34,9 +35,15 @@ const MyInput = ({
                 </Text>
             </Flex>
             <Input
+                borderWidth='1px'
+                borderStyle='solid'
+                borderColor={error ? 'red' : 'gray.200'}
                 mt='4px'
                 color='blue.600'
                 placeholder={placeholder}
+                _placeholder={{
+                    fontSize: { base: '14px', md: '16px' }
+                }}
                 _hover={{
                     cursor: 'pointer',
                     borderWidth: '1px',
@@ -53,7 +60,7 @@ const MyInput = ({
                 onChange={onChange}
                 {...inputStyle}
             />
-        </Box>
+        </Box >
     )
 }
 

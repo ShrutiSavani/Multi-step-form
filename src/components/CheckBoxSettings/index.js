@@ -33,7 +33,7 @@ const CheckBoxSettings = ({ checkBoxOptions, onValueChange }) => {
                         >
                             <Flex
                                 gap='32px'
-                                minW='296px'
+                                minW={{ base: '246px', md: '296px' }}
                                 flex='1'
                                 justifyContent='space-between'
                                 alignItems='center'>

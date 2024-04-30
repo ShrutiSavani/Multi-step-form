@@ -3,8 +3,8 @@ import { Box, Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSe
 import { StepContext } from '../../context/StepContext'
 
 
-const StepperComponent = ({ boxStyle }) => {
-    
+const StepperMobile = ({ boxStyle }) => {
+
     const { step } = useContext(StepContext)
     const steps = [
         { title: 'STEP 1', description: 'YOUR INFO' },
@@ -24,7 +24,7 @@ const StepperComponent = ({ boxStyle }) => {
 
     return (
 
-        <Stepper index={activeStep} orientation='vertical' gap='0' {...boxStyle} >
+        <Stepper index={activeStep} gap='0' {...boxStyle} >
 
             {steps.map((step, index) => (
                 <Step key={index}>
@@ -36,11 +36,6 @@ const StepperComponent = ({ boxStyle }) => {
                         />
                     </StepIndicator>
 
-                    <Box flexShrink='0'>
-                        <StepTitle fontSize='10px' color='gray.500'>{step.title}</StepTitle>
-                        <StepDescription fontSize='12px'>{step.description}</StepDescription>
-                    </Box>
-
                     <StepSeparator />
                 </Step>
             ))}
@@ -48,4 +43,4 @@ const StepperComponent = ({ boxStyle }) => {
     )
 }
 
-export default StepperComponent
+export default StepperMobile

@@ -1,41 +1,63 @@
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Button, Flex } from '@chakra-ui/react'
 import React, { useContext } from 'react'
-import { StepCompleted, StepFour, StepOne, StepThree, StepTwo, StepperComponent } from '../../components'
+import { StepCompleted, StepFour, StepOne, StepThree, StepTwo, StepperComponent, StepperMobile } from '../../components'
 import { StepContext } from '../../context/StepContext'
+import useWindowsWidth from '../../hooks/UseWindowsWidth'
 
 const Form = () => {
     const { step } = useContext(StepContext)
+    const { width } = useWindowsWidth()
+
     return (
-        <Box
-            m='60px auto'
-            maxW='1440px'
-            p='20px'
-            border='1px solid black'>
-            <Flex
-                gap='40px'
-                justifyContent='center'
-            >
-                <Box
-                    bg='pink'
-                    p='20px'
-                    pl='80px'
-                    flex='2'
-                    maxW='340px'
-                    borderRadius='8px'
-                >
-                    <StepperComponent
-                        boxStyle={{
-                            h: '320px',
-                        }}
-                    />
-                </Box>
+        // <Box
+        //     // bg='yellow'
+        //     // bg={{ base: 'none', md: 'white' }}   
+        //     m={{ base: '32px', md: '60px auto' }}
+        //     // p='20px'
+        //     maxW='1040px'
+        // >
+        //     <Flex
+        //         direction={{ base: 'column', md: 'row' }}
+        //         gap='40px'
+        //         justifyContent='center'
+        //         alignItems={{ base: 'center', md: 'unset' }}
+        //     >
+        //         <Box
+        //             bg='blue.50'
+        //             p={{ base: '12px', md: '20px' }}
+        //             pl={{ base: '12px', lg: '40px', xl: '80px' }}
+        //             flex='2'
+        //             maxW={{ base: 'fit-content', md: '340px' }}
+        //             borderRadius='8px'
+        //         >
+        //             {/* {
+        //                 width >= 768 ? (
+        //                     <StepperComponent
+        //                         boxStyle={{
+        //                             h: '320px',
+        //                         }}
+        //                     />
+        //                 ) : ( */}
+        //                     <StepperMobile
+        //                         boxStyle={{
+        //                             w: { base: '220px', sm: '320px' }
+        //                         }} />
+        //                 {/* )
+        //             } */}
+
+        //         </Box>
 
                 <Box
-                    p='40px'
+                    // bg='pink'
+                    bg='white'
+                    borderRadius='12px'
+                    boxShadow='0px 8px 6px -6px #adafb1'
+                    p={{ base: '20px', md: '40px' }}
+                    // m='20px'
                     flex='5'
+                    minW={{ base: '372px', md: '500px' }}
                     maxW='516px'
                     h='530px'
-                    border='1px solid black'
                 >
                     {
                         step === 0 ?
@@ -53,8 +75,12 @@ const Form = () => {
                                         <StepCompleted />
                     }
                 </Box>
-            </Flex>
-        </Box>
+
+        //         <Box bg='teal' w='100%'>
+        //             <Button>hru</Button>
+        //         </Box>
+        //     </Flex >
+        // </Box >
     )
 }
 

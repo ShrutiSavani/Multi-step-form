@@ -6,6 +6,7 @@ import { Flex, Image, Text } from '@chakra-ui/react'
 const StepCompleted = () => {
     return (
         <Flex
+            p={{ base: '40px 0' ,md:''}}
             direction='column'
             h='100%'
             alignItems='center'

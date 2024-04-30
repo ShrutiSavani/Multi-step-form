@@ -5,8 +5,10 @@ import { StepContext } from '../../context/StepContext'
 import HeaderComponent from '../HeaderComponent'
 import { SwitchContext } from '../../context/SwitchContext'
 import useTotalAmount from '../../hooks/UseTotalAmount'
+import useWindowsWidth from '../../hooks/UseWindowsWidth'
 
 const StepFour = ({ boxStyle }) => {
+    const { width } = useWindowsWidth()
     const { setStep, goToPreviousStep, goToNextStep } = useContext(StepContext)
     const { checked, selectedSchemesArray, selectedCheckboxesArray } = useContext(SwitchContext)
     const { totalAmount } = useTotalAmount()
@@ -81,18 +83,18 @@ const StepFour = ({ boxStyle }) => {
                     >+${totalAmount}/mo</Text>
                 </Flex>
             </Box>
-            <Flex justifyContent='space-between'>
-                <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
-                <Button
-                    bg='blue.800'
-                    variant='solid'
-                    _hover={{
-                        bg: 'blue.100',
-                        color: 'blue.600',
-                        borderColor: 'white'
-                    }}
-                    onClick={() => goToNextStep()}
-                >Confirm</Button>
+            <Flex justifyContent='space-between' display={{ base: 'none', md: 'block' }}>
+                    <Button onClick={goToPreviousStep} variant='prev'>Go Back</Button>
+                    <Button
+                        bg='blue.800'
+                        variant='solid'
+                        _hover={{
+                            bg: 'blue.100',
+                            color: 'blue.600',
+                            borderColor: 'white'
+                        }}
+                        onClick={() => goToNextStep()}
+                    >Confirm</Button>
             </Flex>
         </Flex>
     )

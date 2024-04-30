@@ -9,6 +9,9 @@ import CheckBoxSettings from './CheckBoxSettings';
 import MyInput from './MyInput';
 import SwitchButton from './SwitchButton';
 import StepCompleted from './StepCompleted';
+import StepperMobile from './SteeperMobile';
+import DesktopUI from './DesktopUI';
+import MobileUI from './MobileUI';
 
 export {
     StepperComponent,
@@ -21,5 +24,8 @@ export {
     CheckBoxSettings,
     MyInput,
     SwitchButton,
-    StepCompleted
+    StepCompleted,
+    StepperMobile,
+    DesktopUI,
+    MobileUI
 }

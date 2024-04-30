@@ -14,9 +14,9 @@ function RadioCard(props) {
             <input {...input} />
             <Flex
                 {...checkbox}
-                direction='column'
+                direction={{base:'row',md:'column'}}
                 gap='36px'
-                justifyContent='space-between'
+                justifyContent={{base:'',md:'space-between'}}
                 cursor='pointer'
                 borderWidth='1px'
                 borderRadius='8px'
@@ -62,14 +62,16 @@ const RadioSettings = ({ radioOptions, name, boxStyle, onValueChange }) => {
     const group = getRootProps()
 
     return (
-        <HStack {...group} {...boxStyle}>
+        <Flex 
+        flexDirection={{ base: 'column', md: 'row' }}  
+        {...group} {...boxStyle}>
             {radioOptions.map((option, index) => {
                 const radio = getRadioProps({ ...option, value: option.slug })
                 return (
                     <RadioCard key={index} {...radio} />
                 )
             })}
-        </HStack>
+        </Flex >
     )
 }
 
